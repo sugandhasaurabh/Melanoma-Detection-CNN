@@ -43,24 +43,24 @@ The purpose is to build a CNN based model which can accurately detect melanoma. 
 2. Dataset Creation→ Create train & validation dataset from the train directory with a batch size of 32. Also, make sure you resize your images to 180*180.
 3. Dataset visualisation → Create a code to visualize one instance of all the nine classes present in the dataset 
 4. Model Building & training : 
-    a. Create a CNN model, which can accurately detect 9 classes present in the dataset. 
-    b. While building the model, rescale images to normalize pixel values between (0,1).
-    c. Choose an appropriate optimiser and loss function for model training
-    d. Train the model for ~20 epochs
-    e. Check if there is any evidence of model overfit or underfit.
+    - Create a CNN model, which can accurately detect 9 classes present in the dataset. 
+    - While building the model, rescale images to normalize pixel values between (0,1).
+    - Choose an appropriate optimiser and loss function for model training
+    - Train the model for ~20 epochs
+    - Check if there is any evidence of model overfit or underfit.
 5. Chose an appropriate data augmentation strategy to resolve underfitting/overfitting 
 6. Model Building & training on the augmented data :
-    a. Choose data augmentation technique to address issues of underfit\overfit in previous model.
-    b. Train the model for ~20 epochs
-    c. Check if the earlier issue is resolved or not.
+    - Choose data augmentation technique to address issues of underfit\overfit in previous model.
+    - Train the model for ~20 epochs
+    - Check if the earlier issue is resolved or not.
 7. Class distribution: Examine the current class distribution in the training dataset 
-    a. Which class has the least number of samples?
-    b. Which classes dominate the data in terms of the proportionate number of samples?
+    - Which class has the least number of samples?
+    - Which classes dominate the data in terms of the proportionate number of samples?
 8. Handling class imbalances: Rectify class imbalances present in the training dataset with Augmentor library.
 9. Model Building & training on the rectified class imbalance data :
-    a. Check for Class Imbalance and apply Class Rebalancing technique to address Class imbalance
-    b. Train the model for ~30 epochs
-    c. Check if the earlier issue is resolved or not and impact on model performance.
+    - Check for Class Imbalance and apply Class Rebalancing technique to address Class imbalance
+    - Train the model for ~30 epochs
+    - Check if the earlier issue is resolved or not and impact on model performance.
 
 
 
@@ -89,12 +89,12 @@ The data set contains the following diseases:
 
 
 ## Technologies Used
-pandas
-numpy
-matplotlib
-tensorflow
-keras
-augmentor
+- pandas
+- numpy
+- matplotlib
+- tensorflow
+- keras
+- augmentor
 
 
 
