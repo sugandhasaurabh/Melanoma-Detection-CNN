@@ -1,43 +1,90 @@
-# Lending Club Case Study
-> The Lending Club is one of the largest online marketplace for the loans. Consumer can easily apply for the loans in various categories.  The loans are funded by Investors based on the Credit ratings of the Customers.
+# Melanoma Detection Using CNN
+> Melanoma is a type of cancer that can be deadly if not detected early. It accounts for 75% of skin cancer deaths. A solution which can evaluate images and alert the dermatologists about the presence of melanoma has the potential to reduce a lot of manual effort needed in diagnosis.The purpose is to build a CNN based model which can accurately detect melanoma. 
 
 
 
 
 ## Table of Contents
 * [General Info](#general-information)
+* [Business Goals](#business-goals)
+* [Model Building](#model-building)
+* [Dataset](#dataset)
 * [Technologies Used](#technologies-used)
 * [Conclusions](#conclusions)
 * [Acknowledgements](#acknowledgements)
+* [Contact](#contact)
 
 <!-- You can include any other section that is pertinent to your problem -->
 
 ## General Information
-As a part of a Consumer Lending Finance Company, which specialises in lending various types of loans, we need to identify the patterns which indicates if a loan is likely to Default. When the company receives a loan application, it has to make a decision for loan approval based on applicant's profile. This decisioning is associated with 2 kinds of risks;
+Melanoma is a type of cancer that can be deadly if not detected early. It accounts for 75% of skin cancer deaths. A solution which can evaluate images and alert the dermatologists about the presence of melanoma has the potential to reduce a lot of manual effort needed in diagnosis.The purpose is to build a CNN based model which can accurately detect melanoma. The model being built is a multiclass classification model using a custom convolutional neural network in TensorFlow.
 
-a. If the applicant is likely to pay the loan, not approving such loan will result in loss for the company;
-b. If the applicant is likely to default the loan, approving such loan application will also result in loss.
+The dataset consists of 2357 images of malignant and benign oncological diseases, which were formed from the International Skin Imaging Collaboration (ISIC). All images were sorted according to the classification taken with ISIC, and all subsets were divided into the same number of images, with the exception of melanomas and moles, whose images are slightly dominant.
+The data set contains the following diseases:
+1. Actinic keratosis
+2. Basal cell carcinoma
+3. Dermatofibroma
+4. Melanoma
+5. Nevus
+6. Pigmented benign keratosis
+7. Seborrheic keratosis
+8. Squamous cell carcinoma
+9. Vascular lesion
 
-The data given below contains the information about past loan applicants and whether they ‘defaulted’ or not. We need to perform EDA to understand how consumer attributes and loan attributes infulence the decisioning. In other words, the company wants to understand the driving factors (or driver variables) behind loan default, i.e. the variables which are strong indicators of default. The company can utilise this knowledge for its portfolio and risk assessment.
+
+
+## Business Goals
+The purpose is to build a CNN based model which can accurately detect melanoma. The model being built is a multiclass classification model using a custom convolutional neural network in TensorFlow.
+
+
+
+## Model Building
+1. Data Reading/Data Understanding → Defining the path for train and test images 
+2. Dataset Creation→ Create train & validation dataset from the train directory with a batch size of 32. Also, make sure you resize your images to 180*180.
+3. Dataset visualisation → Create a code to visualize one instance of all the nine classes present in the dataset 
+4. Model Building & training : 
+    a. Create a CNN model, which can accurately detect 9 classes present in the dataset. 
+    b. While building the model, rescale images to normalize pixel values between (0,1).
+    c. Choose an appropriate optimiser and loss function for model training
+    d. Train the model for ~20 epochs
+    e. Check if there is any evidence of model overfit or underfit.
+5. Chose an appropriate data augmentation strategy to resolve underfitting/overfitting 
+6. Model Building & training on the augmented data :
+    a. Choose data augmentation technique to address issues of underfit\overfit in previous model.
+    b. Train the model for ~20 epochs
+    c. Check if the earlier issue is resolved or not.
+7. Class distribution: Examine the current class distribution in the training dataset 
+    a. Which class has the least number of samples?
+    b. Which classes dominate the data in terms of the proportionate number of samples?
+8. Handling class imbalances: Rectify class imbalances present in the training dataset with Augmentor library.
+9. Model Building & training on the rectified class imbalance data :
+    a. Check for Class Imbalance and apply Class Rebalancing technique to address Class imbalance
+    b. Train the model for ~30 epochs
+    c. Check if the earlier issue is resolved or not and impact on model performance.
+
+
+
+## Dataset
+The dataset is available in the google drive.
+The dataset consists of 2357 images of malignant and benign oncological diseases, which were formed from the International Skin Imaging Collaboration (ISIC). All images were sorted according to the classification taken with ISIC, and all subsets were divided into the same number of images, with the exception of melanomas and moles, whose images are slightly dominant.
+The data set contains the following diseases:
+1. Actinic keratosis
+2. Basal cell carcinoma
+3. Dermatofibroma
+4. Melanoma
+5. Nevus
+6. Pigmented benign keratosis
+7. Seborrheic keratosis
+8. Squamous cell carcinoma
+9. Vascular lesion
 
 
 
 ## Conclusions
-Driving Factors for loan getting default:
-
-1. Higher Loan Amount (> $30000)
-
-2. Higher interest rate (> 20%)
-
-3. Loan Purpose ( Small Business, Renewable Energy, Education)
-
-4. Higher Revolve Utilization rate (> 75%)
-
-5. Bad Loan Grades (F, G)
-
-6. Lower Annual Income (< $20000)
-
-7. Higher Debt To Income ratio (20% - 25%)
+- The class rebalance in the final model helped in reducing overfititng of the data and thus the loss is reduced. It also enhanced the overall accuracy of the model.
+- Initially we tried building model without the ImageDataGenerator which created data to highly overfit.
+- Then we introduced dropout to address overfitting and ImageDataGenerator for data augmentation which reduced the over fit, but significantly reduced the overall accuracy as well.
+- At last we tried Batch Normalization and Augumentation which really helped in carry forward
 
 
 
@@ -45,13 +92,14 @@ Driving Factors for loan getting default:
 pandas
 numpy
 matplotlib
-seaborn
-datetime
+tensorflow
+keras
+augmentor
 
 
 
 ## Acknowledgements
-Om Prakash | github - @gitmydshub
+Sugandha Saurabh | github - @sugandhasaurabh
 
 
 ## Contact
